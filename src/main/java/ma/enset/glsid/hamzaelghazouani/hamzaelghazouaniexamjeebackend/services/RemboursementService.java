@@ -15,4 +15,5 @@ public interface RemboursementService {
     List<RemboursementDTO> findByDateBetween(Date dateDebut, Date dateFin);
     List<RemboursementDTO> findByCreditAndType(Long creditId, TypeRemboursement type);
     Double calculerTotalRemboursements(Long creditId);
+    List<RemboursementDTO> findAll();
 }

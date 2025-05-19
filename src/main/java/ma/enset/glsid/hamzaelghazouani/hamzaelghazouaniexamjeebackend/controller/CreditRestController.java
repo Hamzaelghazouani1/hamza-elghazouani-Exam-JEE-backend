@@ -1,5 +1,6 @@
 package ma.enset.glsid.hamzaelghazouani.hamzaelghazouaniexamjeebackend.controller;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import ma.enset.glsid.hamzaelghazouani.hamzaelghazouaniexamjeebackend.dtos.CreditDTO;
 import ma.enset.glsid.hamzaelghazouani.hamzaelghazouaniexamjeebackend.enums.StatutCredit;
@@ -15,8 +16,11 @@ import java.util.List;
 @RequestMapping("/credits")
 @RequiredArgsConstructor
 @CrossOrigin("*")
+@Tag(name = "Crédits", description = "API de gestion des crédits")
 public class CreditRestController {
     private final CreditService creditService;
+    
+    
 
     @GetMapping
     public ResponseEntity<List<CreditDTO>> getAllCredits(
@@ -24,7 +28,7 @@ public class CreditRestController {
             @RequestParam(required = false) StatutCredit statut,
             @RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") Date dateApres,
             @RequestParam(required = false) Double montantMin) {
-        
+
         if (clientId != null) {
             return ResponseEntity.ok(creditService.findByClient(clientId));
         } else if (statut != null) {
@@ -34,7 +38,7 @@ public class CreditRestController {
         } else if (montantMin != null) {
             return ResponseEntity.ok(creditService.findByMontantGreaterThan(montantMin));
         }
-        return ResponseEntity.ok(List.of());
+        return ResponseEntity.ok(creditService.findAll());
     }
 
     @GetMapping("/{id}")

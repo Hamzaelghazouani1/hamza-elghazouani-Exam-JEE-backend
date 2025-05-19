@@ -1,5 +1,6 @@
 package ma.enset.glsid.hamzaelghazouani.hamzaelghazouaniexamjeebackend.controller;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import ma.enset.glsid.hamzaelghazouani.hamzaelghazouaniexamjeebackend.dtos.RemboursementDTO;
 import ma.enset.glsid.hamzaelghazouani.hamzaelghazouaniexamjeebackend.enums.TypeRemboursement;
@@ -15,8 +16,14 @@ import java.util.List;
 @RequestMapping("/remboursements")
 @RequiredArgsConstructor
 @CrossOrigin("*")
+@Tag(name = "Crédits Remboursement", description = "API de gestion des remboursements ")
 public class RemboursementRestController {
     private final RemboursementService remboursementService;
+
+    @GetMapping
+    public List<RemboursementDTO> getAllRemboursements() {
+        return remboursementService.findAll();
+    }
 
     @PostMapping
     public ResponseEntity<RemboursementDTO> createRemboursement(@RequestBody RemboursementDTO remboursementDTO) {

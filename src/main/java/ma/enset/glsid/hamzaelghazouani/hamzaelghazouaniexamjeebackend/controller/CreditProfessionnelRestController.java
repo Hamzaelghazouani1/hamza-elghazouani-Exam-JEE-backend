@@ -1,5 +1,6 @@
 package ma.enset.glsid.hamzaelghazouani.hamzaelghazouaniexamjeebackend.controller;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import ma.enset.glsid.hamzaelghazouani.hamzaelghazouaniexamjeebackend.dtos.CreditProfessionnelDTO;
 import ma.enset.glsid.hamzaelghazouani.hamzaelghazouaniexamjeebackend.services.CreditProfessionnelService;
@@ -11,6 +12,7 @@ import java.util.List;
 @RequestMapping("/credits/professionnel")
 @RequiredArgsConstructor
 @CrossOrigin("*")
+@Tag(name = "Crédits Professionnel", description = "API de gestion des crédits professionnels")
 public class CreditProfessionnelRestController {
     private final CreditProfessionnelService creditProfessionnelService;
 

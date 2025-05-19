@@ -101,4 +101,9 @@ public class RemboursementServiceImpl implements RemboursementService {
                 .orElseThrow(() -> new RuntimeException("Crédit non trouvé"));
         return remboursementRepository.calculerTotalRemboursements(credit);
     }
+
+    @Override
+    public List<RemboursementDTO> findAll() {
+        return remboursementMapper.toDtoList(remboursementRepository.findAll());
+    }
 }

@@ -1,5 +1,6 @@
 package ma.enset.glsid.hamzaelghazouani.hamzaelghazouaniexamjeebackend.controller;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import ma.enset.glsid.hamzaelghazouani.hamzaelghazouaniexamjeebackend.dtos.*;
 import ma.enset.glsid.hamzaelghazouani.hamzaelghazouaniexamjeebackend.services.*;
@@ -12,6 +13,7 @@ import java.util.List;
 @RequestMapping("/clients")
 @RequiredArgsConstructor
 @CrossOrigin("*")
+@Tag(name = "Clients", description = "API de gestion des clients et leurs crédits")
 public class ClientRestController {
     private final ClientService clientService;
     private final CreditService creditService;

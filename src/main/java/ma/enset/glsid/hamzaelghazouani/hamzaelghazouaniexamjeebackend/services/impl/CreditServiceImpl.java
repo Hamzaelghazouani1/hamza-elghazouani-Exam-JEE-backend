@@ -57,6 +57,11 @@ public class CreditServiceImpl implements CreditService {
     }
 
     @Override
+    public List<CreditDTO> findAll() {
+        return creditMapper.toDtoList(creditRepository.findAll());
+    }
+
+    @Override
     public CreditDTO findById(Long id) {
         Credit credit = creditRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Crédit non trouvé"));

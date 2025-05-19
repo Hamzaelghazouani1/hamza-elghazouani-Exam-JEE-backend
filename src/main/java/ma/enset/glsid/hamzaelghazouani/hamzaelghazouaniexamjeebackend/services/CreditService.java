@@ -10,6 +10,7 @@ public interface CreditService {
     CreditDTO save(CreditDTO creditDTO);
     CreditDTO update(Long id, CreditDTO creditDTO);
     void delete(Long id);
+    List<CreditDTO> findAll();
     CreditDTO findById(Long id);
     List<CreditDTO> findByClient(Long clientId);
     List<CreditDTO> findByStatut(StatutCredit statut);

@@ -1,5 +1,6 @@
 package ma.enset.glsid.hamzaelghazouani.hamzaelghazouaniexamjeebackend.controller;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import ma.enset.glsid.hamzaelghazouani.hamzaelghazouaniexamjeebackend.dtos.CreditImmobilierDTO;
 import ma.enset.glsid.hamzaelghazouani.hamzaelghazouaniexamjeebackend.enums.StatutCredit;
@@ -14,6 +15,7 @@ import java.util.List;
 @RequestMapping("/credits/immobilier")
 @RequiredArgsConstructor
 @CrossOrigin("*")
+@Tag(name = "Crédits Immobilier", description = "API de gestion des crédits immobiliers")
 public class CreditImmobilierRestController {
     private final CreditImmobilierService creditImmobilierService;
 
